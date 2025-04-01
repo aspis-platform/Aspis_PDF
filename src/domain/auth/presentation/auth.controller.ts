@@ -19,4 +19,11 @@ export class AuthController {
       return { valid: false, message: error.message };
     }
   }
+
+
+
+  @Get('donggun') 
+  getHello(): string {
+    return 'hello'; 
+  }
 }
