@@ -1,8 +1,15 @@
-import { Injectable } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
 
-@Injectable()
-export class AppService {
-  getHello(): string {
-    return 'Hello World!';
-  }
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  
+  app.enableCors({
+    origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  });
+  
+  await app.listen(3339);
 }
+bootstrap();
