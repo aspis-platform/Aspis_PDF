@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import * as fs from 'fs';
 import { Controller, Get, Query, Res, UsePipes, ValidationPipe } from '@nestjs/common';
-import { PdfReqeustDto } from '../dto/Pdf.request.dto';
+import { PdfRequestDto } from '../dto/Pdf.request.dto';
 import { PdfService } from '../service/Pdf.service';
 
 @Controller('pdf')
@@ -10,7 +10,7 @@ export class PdfController {
 
   @Get('generate')
   @UsePipes(new ValidationPipe({ transform: true })) // DTO 검증 적용
-  async generatePdf(@Query() query: PdfReqeustDto, @Res() res: Response) {
+  async generatePdf(@Query() query: PdfRequestDto, @Res() res: Response) {
     try {
       const { url } = query;
       const pdfPath = await this.pdfService.generatePdf(url);
