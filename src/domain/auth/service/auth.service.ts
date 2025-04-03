@@ -7,13 +7,13 @@ export class AuthService {
   private secretKey: string;
 
   constructor(private readonly configService: ConfigService) {
-    this.secretKey = this.configService.get<string>('JWT_SECRETKEY') || 'default-secret-key'; // 기본값 설정 가능
+    this.secretKey = this.configService.get<string>('JWT_SECRETKEY') || 'default-secret-key';
   }
 
   verifyToken(token: string): boolean {
     try {
-      jwt.verify(token, this.secretKey); //jsonwebtoken 라이브러리의 verify() 메서드를 사용하여 토큰이 유효한지 확인
-      return true; // 유효한 토큰
+      jwt.verify(token, this.secretKey);
+      return true; 
     } catch (error) {
       throw new UnauthorizedException('Invalid or expired token');
     }
