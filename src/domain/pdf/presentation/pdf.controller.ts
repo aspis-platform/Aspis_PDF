@@ -11,7 +11,7 @@ export class PdfController {
   constructor(private readonly pdfService: PdfService) {}
 
   @Get('generate')
-  @UsePipes(new ValidationPipe({ transform: true })) // DTO 검증 적용
+  @UsePipes(new ValidationPipe({ transform: true })) //transform: true 옵션을 주면, 요청 데이터를 PdfRequestDto 객체로 변환
   async generatePdf(@Query() query: PdfRequestDto, @Res() res: Response) {
     try {
       const { url } = query;
