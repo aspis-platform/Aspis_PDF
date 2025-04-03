@@ -16,6 +16,19 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+
+    // ✅ JSON 파일 import 가능하도록 설정 (환경변수 설정 시 유용)
+    "resolveJsonModule": true,
+
+    // ✅ import 시 확장자(.ts/.js) 생략 가능하도록 설정
+    "moduleResolution": "node",
+
+    // ✅ 절대 경로 import를 위한 alias 설정
+    "paths": {
+      "@domain/*": ["src/domain/*"],
+      "@utils/*": ["src/utils/*"],
+      "@config/*": ["src/config/*"]
+    }
   }
 }
