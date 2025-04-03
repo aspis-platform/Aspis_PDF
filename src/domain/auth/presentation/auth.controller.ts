@@ -7,7 +7,7 @@ export class AuthController {
 
   @Get('verify')
   verifyToken(@Headers('authorization') authHeader: string) {
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    if (!authHeader || !authHeader.startsWith('Bearer')) {
       return { valid: false, message: 'No token provided or invalid format' };
     }
 
