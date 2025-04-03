@@ -1,8 +1,10 @@
 import { Response } from 'express';
 import * as fs from 'fs';
 import { Controller, Get, Query, Res, UsePipes, ValidationPipe } from '@nestjs/common';
-import { PdfRequestDto } from '../dto/Pdf.request.dto';
-import { PdfService } from '../service/Pdf.service';
+import { PdfRequestDto } from '../dto/pdf.request.dto';
+import { PdfService } from '../service/pdf.service';
+
+
 
 @Controller('pdf')
 export class PdfController {

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { PdfController } from './presentation/Pdf.controller';
-import { PdfService } from '../pdf/service/Pdf.service';
+import { PdfController } from './presentation/pdf.controller';
+import { PdfService } from './service/pdf.service';
 
 
 
